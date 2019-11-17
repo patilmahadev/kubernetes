@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+        name: my-config
+data:
+        user: admin
+        password: welcome
+        environment: dev
+        version: 1.0.2

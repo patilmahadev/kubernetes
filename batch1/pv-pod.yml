@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+        name: pv-pod
+spec:
+        volumes:
+                - name: pv-storage
+                  persistentVolumeClaim:
+                          claimName: pv-claim
+        containers:
+                - name: pv-container
+                  image: tomcat:7 
+                  ports:
+                          - containerPort: 8080
+                            name: pv-app-srv
+                  volumeMounts:
+                          - mountPath: "/media"
+                            name: pv-storage

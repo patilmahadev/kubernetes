@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+        name: configmap-pod
+        annotations:
+                description: testing configmaps
+                supportTeam: teamA
+                appVersion: 1.0.2345 
+spec:
+        containers:
+                - name: configmap-container
+                  image: tomcat:7
+                  ports:
+                          - containerPort: 8080
+                            name: app-port
+                  env:
+                          - name: user
+                            valueFrom:
+                                    configMapKeyRef:
+                                            name: my-config
+                                            key: user
+                          - name: pass
+                            valueFrom:
+                                    configMapKeyRef:
+                                            name: my-config
+                                            key: password
