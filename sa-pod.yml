@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sa-pod
+spec:
+  serviceAccountName: test-sa
+  containers:
+    - name: myapp
+      image: patilmahadev/myapp:6.0
